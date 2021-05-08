@@ -21,7 +21,7 @@ export const getFilteredTrips = ({trips, filters}) => {
 };
 
 export const getTripById = ({trips}, tripId) => {
-  const filtered = trips;
+  const filtered = trips.filter(trip => trip.id == tripId);     //miałem tu tylko const filtered = trips i zwracało zawsze jedną i tę samą wycieczkę do Turcji
 
   // TODO - filter trips by tripId
 
