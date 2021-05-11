@@ -12,7 +12,7 @@ describe('Component TripSummary', () => {
 
   it('should have correct src and alt', () => {
     const expectedSrc = 'image.jpg';
-    const expectedAlt = 'image';
+    const expectedAlt = 'name';
     const component = shallow(<TripSummary image={expectedSrc} name={expectedAlt} />);
     expect(component.find('img').prop('src')).toEqual(expectedSrc);
     expect(component.find('img').prop('alt')).toEqual(expectedAlt);
@@ -22,7 +22,7 @@ describe('Component TripSummary', () => {
     const expectedCost = '25000';
     const expectedDays = 7;
     const expectedName = 'Mauritius';
-    const component = shallow(<TripSummary image={'image'} name={expectedName} cost={expectedCost} days={expectedDays} id={'id'} tags={['beach', 'sea', 'sun']} />);
+    const component = shallow(<TripSummary image={'image'} name={expectedName} cost={expectedCost} days={expectedDays} id={'id'} tags={['beach', 'spa', 'pool']} />);
 
     expect(component.find('.details span').last().text()).toEqual(`from ${expectedCost}`);
     expect(component.find('.details span').first().text()).toEqual(`${expectedDays} days`);
@@ -34,7 +34,7 @@ describe('Component TripSummary', () => {
   });
 
   it('should render tags in spans', () => {
-    const expectedTags = ['beach', 'sea', 'sun'];
+    const expectedTags = ['beach', 'spa', 'pool'];
     const component = shallow(<TripSummary  tags={expectedTags} />);
     expect(component.find('.tags span').at(0).text()).toEqual(expectedTags[0]);
     expect(component.find('.tags span').at(1).text()).toEqual(expectedTags[1]);
@@ -42,7 +42,7 @@ describe('Component TripSummary', () => {
   });
 
   it('if prop tags is false not render spans', () => {
-    const component = shallow(<TripSummary image={'image'} name={'image'} cost={'cost'} days={7} id={'id'} />);
+    const component = shallow(<TripSummary image={'image'} name={'name'} cost={'cost'} days={7} id={'id'} />);
 
     expect(component.hasClass('tags')).toBe(false);
   });
